@@ -1,0 +1,23 @@
+---
+- name: REMOVE NON CONFIG LINES in BACKUP DIRECTORY
+  hosts: localhost
+  become: yes
+  ignore_errors: yes
+  tasks:
+    - name: list of the files and store it in backup folder
+      raw: find /home/user/python/backup -type f
+      register: backup_dir
+    - name: update files in ./backup
+      lineinfile:
+        dest={{ item }}
+        line="Building configuration..."
+        regexp="^Building configuration..."
+        state=absent
+      with_items: "{{ backup_dir.stdout_lines }}"
+    - name: update files in ./backup
+      lineinfile:
+        dest={{ item }}
+        line="sh run"
+        regexp="sh run"
+        state=absent
+      with_items: "{{ backup_dir.stdout_lines }}"

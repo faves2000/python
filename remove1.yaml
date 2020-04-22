@@ -1,0 +1,24 @@
+---
+- name: REMOVE NON CONFIG LINES in BACKUP DIRECTORY
+  hosts: localhost
+  become: yes
+  ignore_errors: yes
+
+
+
+  tasks:
+    - name: Get a list of files in /home/user/python/backup
+      find:
+        paths: /home/user/python/backup
+        patterns: "*.*"
+      register: my_find
+
+    - name: Replace strings in files found
+      replace:
+        dest: "{{ item.path }}"
+        backup: no
+        before: 'show run'
+        regexp: '^(.*)$'
+        replace: ""
+      with_items: "{{ my_find.files }}"
+
