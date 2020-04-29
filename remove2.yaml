@@ -17,7 +17,14 @@
     - name: update files in ./backup
       lineinfile:
         dest={{ item }}
-        line="sh run"
-        regexp="sh run"
+        line="show run"
+        regexp="show run"
+        state=absent
+      with_items: "{{ backup_dir.stdout_lines }}"
+    - name: update files in ./backup
+      lineinfile:
+        dest={{ item }}
+        line="term len 0"
+        regexp="term len 0"
         state=absent
       with_items: "{{ backup_dir.stdout_lines }}"
