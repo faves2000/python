@@ -21,4 +21,11 @@
         regexp: '^(.*)$'
         replace: ""
       with_items: "{{ my_find.files }}"
-
+    - name: Replace strings in files found
+      replace:
+        dest: "{{ item.path }}"
+        backup: no
+        before: 'term len 0'
+        regexp: '^(.*)$'
+        replace: ""
+      with_items: "{{ my_find.files }}"
