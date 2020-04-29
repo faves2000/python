@@ -1,0 +1,8 @@
+hostname,ip,username,password,device_type,secret,timeout
+ASA_NY_LT,10.209.209.1,backup,e!P3@Gp2Tc-L,cisco_asa,wk!N*+Xp+m8p,16
+ASA_NY_SVB,10.209.209.3,backup,e!P3@Gp2Tc-L,cisco_asa,wk!N*+Xp+m8p,16
+ASA_MSK_TC,10.175.102.1,backup,e!P3@Gp2Tc-L,cisco_asa,RjW+5xkjW!3Z,16
+S4048_NY_core,10.209.100.1,backup,e!P3@Gp2Tc-L,cisco_ios,5qGwEtCBB62PgTf,16
+S4048_NY_prod,10.209.100.23,backup,e!P3@Gp2Tc-L,cisco_ios,5qGwEtCBB62PgTf,16
+S4048_MSK_PROD,10.184.250.1,backup,e!P3@Gp2Tc-L,cisco_ios,2gxGHVwzPR732,16
+C3750_NY_A,10.209.100.20,backup,e!P3@Gp2Tc-L,cisco_ios,5qGwEtCBB62PgTf,16
